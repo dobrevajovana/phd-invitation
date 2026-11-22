@@ -32,26 +32,16 @@
 
   /* hero */
   .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:56px 0 40px}
-  .kid{position:relative;width:min(340px,78vw);margin:0 auto 22px}
-  .kid img{display:block;width:100%;height:auto;filter:drop-shadow(0 16px 28px rgba(0,0,0,.18))}
+  .album{--h:min(390px,40vw);display:flex;align-items:flex-end;justify-content:center;gap:clamp(18px,3vw,40px);
+    width:min(1000px,calc(100vw - 32px));margin:64px 0 26px calc(50% - min(500px,50vw - 16px))}
+  .kid{position:relative;margin:0;height:var(--h);flex:0 0 auto}
+  .kid img{display:block;height:100%;width:auto;filter:drop-shadow(0 16px 28px rgba(0,0,0,.18))}
   .kid .arrows{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
   .kid .arrows path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .tag{position:absolute;font-family:Caveat,cursive;font-weight:600;color:var(--accent);font-size:clamp(1.05rem,4vw,1.5rem);line-height:1;width:30%;white-space:normal}
-  .tag-mum{left:-6%;top:-12%;text-align:center;transform:rotate(-8deg)}
-  .tag-me{left:80%;top:-10%;text-align:center;transform:rotate(6deg)}
-  .album{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,36px);margin:44px auto 26px}
-  .album .kid{margin:0;flex:0 0 auto;width:min(320px,46vw)}
-  .polaroid{flex:0 0 auto;width:min(180px,24vw);margin:0;background:#fff;padding:8px 8px 0;border-radius:2px;box-shadow:0 12px 26px rgba(0,0,0,.18)}
-  .polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-  .polaroid figcaption{font-family:Caveat,cursive;font-weight:600;color:#3a332c;font-size:clamp(1rem,2.4vw,1.25rem);line-height:1.1;padding:8px 2px 10px;text-align:center}
-  .p-dad{transform:rotate(-5deg) translateY(36px)}
-  .p-school{transform:rotate(4deg) translateY(36px)}
-  .p-school img{object-position:50% 25%}
-  @media (max-width:620px){
-    .album{flex-wrap:wrap;gap:18px 14px}
-    .album .kid{order:-1;width:64vw;margin:0 calc(50% - 32vw) 8px}
-    .polaroid{width:40vw}
-    .p-dad,.p-school{translate:0 -36px}
+  .tag{position:absolute;width:var(--w,40%);font-family:Caveat,cursive;font-weight:600;color:var(--accent);font-size:clamp(1rem,1.9vw,1.4rem);line-height:1;text-align:center}
+  @media (max-width:700px){
+    .album{--h:min(420px,86vw);flex-direction:column;align-items:center;gap:72px;width:auto;margin:60px auto 26px}
+    .tag{font-size:1.15rem}
   }
   .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
   .hero h1{font-size:clamp(2.5rem,9vw,5rem);line-height:1.02;margin:18px 0 16px}
@@ -149,24 +139,38 @@
 
 <header class="hero wrap">
   <div class="album">
-  <figure class="polaroid p-dad">
-    <img src="dad-birthday.jpg" alt="Jovana on her first birthday, held by her dad">
-    <figcaption>my 1st birthday,<br>with dad</figcaption>
-  </figure>
-  <figure class="kid">
-    <img src="mum-and-me.png" alt="Jovana at two in a graduation cap with her mum">
-    <svg class="arrows" viewBox="0 0 100 132" preserveAspectRatio="none" aria-hidden="true">
-      <path vector-effect="non-scaling-stroke" d="M 6 -5 Q 2 8 14 14"/>
-      <path vector-effect="non-scaling-stroke" d="M 9.3 14.4 L 14 14 L 11.5 10"/>
-      <path vector-effect="non-scaling-stroke" d="M 95 2 Q 102 30 86 47"/>
-      <path vector-effect="non-scaling-stroke" d="M 90.5 45.8 L 86 47 L 86.9 42.4"/>
+  <figure class="kid k-dad">
+    <img src="dad-and-me.png" alt="Jovana at one year old with her dad">
+    <svg class="arrows" viewBox="0 0 100 128.6" preserveAspectRatio="none" aria-hidden="true">
+      <path vector-effect="non-scaling-stroke" d="M 14 -5 Q 10 6 28 13"/>
+      <path vector-effect="non-scaling-stroke" d="M 23.4 13.9 L 28 13 L 25.2 9.2"/>
+      <path vector-effect="non-scaling-stroke" d="M 90 -4 Q 100 8 92 17"/>
+      <path vector-effect="non-scaling-stroke" d="M 92.8 12.3 L 92 17 L 96.5 15.7"/>
     </svg>
-    <span class="tag tag-mum" aria-hidden="true">my mum</span>
-    <span class="tag tag-me" aria-hidden="true">me at two</span>
+    <span class="tag" style="left:-4%;top:-11%;transform:rotate(-8deg)" aria-hidden="true">her dad</span>
+    <span class="tag" style="left:68%;top:-15%;transform:rotate(6deg)" aria-hidden="true">Jovana,<br>1 year old</span>
   </figure>
-  <figure class="polaroid p-school">
-    <img src="first-grade.jpg" alt="Jovana on her first day of school with her mum">
-    <figcaption>first day of school,<br>with mum</figcaption>
+  <figure class="kid k-mum">
+    <img src="mum-and-me.png" alt="Jovana at two years old in a graduation cap with her mum">
+    <svg class="arrows" viewBox="0 0 100 131.8" preserveAspectRatio="none" aria-hidden="true">
+      <path vector-effect="non-scaling-stroke" d="M 6 -5 Q 2 8 14 14"/>
+      <path vector-effect="non-scaling-stroke" d="M 9.3 14.4 L 14 14 L 11.5 10.0"/>
+      <path vector-effect="non-scaling-stroke" d="M 95 2 Q 102 30 86 47"/>
+      <path vector-effect="non-scaling-stroke" d="M 86.9 42.4 L 86 47 L 90.6 45.8"/>
+    </svg>
+    <span class="tag" style="left:-6%;top:-12%;transform:rotate(-8deg)" aria-hidden="true">her mum</span>
+    <span class="tag" style="left:78%;top:-14%;transform:rotate(6deg)" aria-hidden="true">Jovana,<br>2 years old</span>
+  </figure>
+  <figure class="kid k-school">
+    <img src="school-and-mum.png" alt="Jovana in first grade with her mum">
+    <svg class="arrows" viewBox="0 0 100 219.8" preserveAspectRatio="none" aria-hidden="true">
+      <path vector-effect="non-scaling-stroke" d="M 86 -3 Q 95 8 80 14"/>
+      <path vector-effect="non-scaling-stroke" d="M 82.8 10.2 L 80 14 L 84.6 14.8"/>
+      <path vector-effect="non-scaling-stroke" d="M 12 52 Q 6 66 20 78"/>
+      <path vector-effect="non-scaling-stroke" d="M 15.2 79.3 L 20 78 L 18.4 73.2"/>
+    </svg>
+    <span class="tag" style="left:58%;top:-8%;--w:56%;transform:rotate(6deg)" aria-hidden="true">her mum</span>
+    <span class="tag" style="left:-14%;top:12%;--w:60%;transform:rotate(-6deg)" aria-hidden="true">Jovana,<br>first grade</span>
   </figure>
   </div>
   <p class="eyebrow">You're invited · Skopje</p>
